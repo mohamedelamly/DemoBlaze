@@ -18,7 +18,8 @@ public class ProductTest extends BaseTest{
     }
 
     @Test
+    //validate product price which is on home is match with the price on product page details
     public void test(){
-        Assert.assertEquals("","");
+        Assert.assertTrue(productPage.getProductPrice().contains(HomePage.productPrice));
     }
 }
