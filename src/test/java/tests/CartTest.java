@@ -2,10 +2,13 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductPage;
+
+import java.util.List;
 
 public class CartTest extends BaseTest{
 
@@ -14,7 +17,7 @@ public class CartTest extends BaseTest{
     ProductPage productPage;
     int productsPrice ;
     int cartPrice ;
-    String[] products = {"Samsung", "Nokia"};
+    String[] products = getProductsNames();
 
     @BeforeClass
     public void navigateToCartPage(){
@@ -37,6 +40,7 @@ public class CartTest extends BaseTest{
     }
 
     // Method to take the products names to add it to cart
+
     public void addProductsToCart(String[] products){
         for(String productsNames: products) {
             productPage = homePage.navigateToProduct(productsNames);
