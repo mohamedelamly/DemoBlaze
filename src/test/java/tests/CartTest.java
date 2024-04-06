@@ -16,7 +16,7 @@ public class CartTest extends BaseTest{
     int cartPrice ;
     String[] products = {"Samsung", "Nokia"};
 
-    @BeforeClass()
+    @BeforeClass
     public void navigateToCartPage(){
         homePage = new HomePage(driver);
         cartPage = new CartPage(driver);
@@ -28,7 +28,12 @@ public class CartTest extends BaseTest{
         cartPrice = cartPage.getCartTotalPrice();
         // get products sum price from products table in cart page
         productsPrice = cartPage.getProductsTotalPrice();
+    }
 
+    @Test
+    // Validate products sum price is matching with cart total price
+    public void validateTotalPrice(){
+        Assert.assertEquals(cartPrice, productsPrice);
     }
 
     // Method to take the products names to add it to cart
@@ -38,11 +43,5 @@ public class CartTest extends BaseTest{
             productPage.addProductToCart();
             homePage = homePage.navigateToHome();
         }
-    }
-
-    @Test
-    // Validate products sum price is matching with cart total price
-    public void validateTotalPrice(){
-        Assert.assertEquals(cartPrice, productsPrice);
     }
 }

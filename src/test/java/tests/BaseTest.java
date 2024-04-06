@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     public WebDriver driver;
-    public String siteURL = "https://www.demoblaze.com/";
+    public String siteURL = "https://www.demoblaze.com/index.html";
 
     @BeforeClass
     public void setDriver(){
