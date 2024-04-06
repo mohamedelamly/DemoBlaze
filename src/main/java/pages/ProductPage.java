@@ -34,7 +34,7 @@ public class ProductPage {
         return driver.findElement(productPrice).getText();
     }
 
-    // sff product to the cart and accepting the alert
+    // add product to the cart and accepting the alert
     public void addProductToCart(){
         wait.until(ExpectedConditions.presenceOfElementLocated(addToCartButton));
         driver.findElement(addToCartButton).click();
@@ -43,5 +43,4 @@ public class ProductPage {
         alertMessage = alert.getText();
         alert.accept();
     }
-
 }
